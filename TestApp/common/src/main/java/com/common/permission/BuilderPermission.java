@@ -13,8 +13,8 @@ public class BuilderPermission {
     private String[] permissions = new String[]{};
     private Activity activity;
 
-    public BuilderPermission setActivity(Activity activity){
-        this.activity=activity;
+    public BuilderPermission setActivity(Activity activity) {
+        this.activity = activity;
         return this;
     }
 
@@ -23,7 +23,12 @@ public class BuilderPermission {
         return this;
     }
 
-    public void build(){
+    public BuilderPermission setPermission(String permissions) {
+        this.permissions[permissions.length()] = permissions;
+        return this;
+    }
+
+    public void build() {
         Intent intent = new Intent(activity, PermissionActivity.class);
         intent.putExtra(PERMISSIONS, permissions);
         activity.startActivity(intent);
